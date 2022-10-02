@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import { createContext, useState } from 'react';
 import './App.css';
+import Button from './components/div/Button';
 
+const UserContext = createContext()
 function App() {
+  const [user, setUser]=useState(" hello")
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserContext.Provider value={user}>
+        <h1>{`Click Me${user}`}</h1>
+        <Button />
+      </UserContext.Provider>
+     
+     
     </div>
   );
 }
